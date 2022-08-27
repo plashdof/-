@@ -1,0 +1,33 @@
+폴더에 마우스우클릭 git bash here
+
+git init : 저장소를 초기화.
+
+git add (파일명): 무대위에 올리는 역할 ( commit 전 필수단계 )
+	          총에 총알을 집어넣는 행위
+
+git commit -m "버전이름": 현재 상태를 저장하는 역할. (게임에서 
+	           	          총을 발사하는 행위	
+
+git status : 현재 작업중인 상태 출력.
+
+git log : 파일 버전들 확인
+
+git config --list : 폴더 안에 세팅되어있는 것 확인하기
+
+<원하는 버전으로 가는 법>
+
+git checkout (commit주소)
+-> git log 하면, 버전마다 commit 주소가 있음.
+-> 이상태로 파일 열면, 해당 버전상태로 열림
+
+git checkout - 
+-> 가장 최신버전으로 돌아감
+
+<git hub 업로드 하는법>
+
+git remote add origin (github 주소) : 원격저장소 주소 등록
+git push origin master : 업로드
+
+
+
+

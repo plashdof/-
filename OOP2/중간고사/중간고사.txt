@@ -1,0 +1,269 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <random>
+using namespace std;
+
+
+enum class Grade{Agroup, Bgroup, Cgroup};
+
+int* seperate_score(int* a, Grade g);
+string* seperate_student(int* a, string* c, Grade g);
+
+int main() {
+	random_device seed;
+	mt19937 eng(seed());
+
+	uniform_int_distribution<int> dist(0, 30);
+	
+	string students[] = { "공민선", "김민경", "김보겸", "김성원", "김세희", "김영범", "김영인", "김지연", "김푸름", "박소현",
+		"박준혁", "박진성", "박태남", "반웅재", "서동우", "서희환", "송치헌", "심원주", "안지현", "여민영",
+		"오영주", "유영진", "이강", "이채은", "이태희", "정휘진", "최경일", "최준혁", "최찬규", "하대훈",
+		"하지민", "한예원", "황태준" };
+
+	int scores[33] = { 0 };
+
+	for (int i = 0; i < 33; i++)
+	{
+		scores[i] = dist(eng);
+	}
+
+	int Acount = 0, Bcount = 0, Ccount = 0;
+	for (int i = 0; i < 33; i++)
+	{
+		if (scores[i] >= 20)
+			Acount++;
+		if (scores[i] < 20 && scores[i] >= 10)
+			Bcount++;
+		else
+			Ccount++;
+	}
+
+	int* Ascore = seperate_score(scores, Grade::Agroup);
+	int* Bscore = seperate_score(scores, Grade::Bgroup);
+	int* Cscore = seperate_score(scores, Grade::Cgroup);
+	
+	string* Astudent = seperate_student(scores, students, Grade::Agroup);
+	string* Bstudent = seperate_student(scores, students, Grade::Bgroup);
+	string* Cstudent = seperate_student(scores, students, Grade::Cgroup);
+
+	int num = 0;
+	int result = 0;
+
+	for (auto score : scores)
+	{
+		result += score;
+	}
+
+	int avg = result / 33;
+	
+	do {
+		cout << "\n=== 계절학기 성적 ===\n\n";
+		cout << "1. 전체보기   2. 그룹별조회   3. 상세조회   4. 종료\n\n";
+		cin >> num;
+
+
+		if (num == 1)
+		{
+			for (int i = 0; i < sizeof(scores) / sizeof(scores[0]); i++)
+			{
+				if (i != 0 && i % 5 == 0)
+				{
+					cout << "\n";
+				}
+				if (scores[i] < 10)
+				{
+					cout <<  students[i] << " : " << scores[i] << setw(11);
+				}
+				else
+					cout << students[i] << " : " << scores[i] << setw(10);
+			}
+
+			cout << "\n\n평균 : " << avg;
+		}
+		else if (num == 2)
+		{
+			cout << "\nAgroup\n\n";
+			for (int i = 0; i < Acount; i++)
+			{
+				if (i != 0 && i % 5 == 0)
+				{
+					cout << "\n";
+				}
+				if (Ascore[i] < 10)
+				{
+					cout << Astudent[i] << " : " << Ascore[i] << setw(11);
+				}
+				else
+					cout << Astudent[i] << " : " << Ascore[i] << setw(10);
+			}
+
+			cout << "\nBgroup\n\n";
+			for (int i = 0; i < Bcount; i++)
+			{
+				if (i != 0 && i % 5 == 0)
+				{
+					cout << "\n";
+				}
+				if (Bscore[i] < 10)
+				{
+					cout << Bstudent[i] << " : " << Bscore[i] << setw(11);
+				}
+				else
+					cout << Bstudent[i] << " : " << Bscore[i] << setw(10);
+			}
+
+			cout << "\nCgroup\n\n";
+			for (int i = 0; i < Ccount; i++)
+			{
+				if (i != 0 && i % 5 == 0)
+				{
+					cout << "\n";
+				}
+				if (Cscore[i] < 10)
+				{
+					cout << Cstudent[i] << " : " << Cscore[i] << setw(11);
+				}
+				else
+					cout << Cstudent[i] << " : " << Cscore[i] << setw(10);
+			}
+		}
+		else if (num == 3)
+		{
+
+		}
+		else if (num == 4)
+			break;
+		else
+		{
+			cout << "올바른 숫자를 입력해주세요.\n\n";
+			continue;
+		}
+			
+
+
+
+	} while (true);
+	
+		 
+	return 0;
+}
+
+int* seperate_score(int* a,  Grade g)
+{
+	int Acount = 0, Bcount = 0, Ccount = 0;
+	for (int i = 0; i < 33; i++)
+	{
+		if (a[i] >= 20)
+			Acount++;
+		if (a[i] < 20 && a[i] >= 10)
+			Bcount++;
+		else
+			Ccount++;
+	}
+
+	int count = -1;
+
+	if (g == Grade::Agroup)
+	{
+		int* b = new int[Acount];
+		for (int i = 0; i < 33; i++)
+		{
+			if (a[i] >= 20)
+			{
+				count++;
+				b[count] = a[i];
+			}
+
+		}
+		return b;
+	}
+	if (g == Grade::Bgroup)
+	{
+		int* b = new int[Bcount];
+		for (int i = 0; i < 33; i++)
+		{
+			if (a[i] < 20 && a[i] >= 10)
+			{
+				count++;
+				b[count] = a[i];
+			}
+
+		}
+		return b;
+	}
+	if (g == Grade::Cgroup)
+	{
+		int* b = new int[Ccount];
+		for (int i = 0; i < 33; i++)
+		{
+			if (a[i] < 10)
+			{
+				count++;
+				b[count] = a[i];
+			}
+
+		}
+		return b;
+	}
+}
+string* seperate_student(int* a, string* c, Grade g)
+{
+	int Acount = 0, Bcount = 0, Ccount = 0;
+	for (int i = 0; i < 33; i++)
+	{
+		if (a[i] >= 20)
+			Acount++;
+		if (a[i] < 20 && a[i] >= 10)
+			Bcount++;
+		else
+			Ccount++;
+	}
+
+	int count = -1;
+
+	if (g == Grade::Agroup)
+	{
+		string* b = new string[Acount];
+		for (int i = 0; i < 33; i++)
+		{
+			if (a[i] >= 20)
+			{
+				count++;
+				b[count] = c[i];
+			}
+
+		}
+		return b;
+	}
+	if (g == Grade::Bgroup)
+	{
+		string* b = new string[Bcount];
+		for (int i = 0; i < 33; i++)
+		{
+			if (a[i] < 20 && a[i] >= 10)
+			{
+				count++;
+				b[count] = c[i];
+			}
+
+		}
+		return b;
+	}
+	if (g == Grade::Cgroup)
+	{
+		string* b = new string[Ccount];
+		for (int i = 0; i <33; i++)
+		{
+			if (a[i] < 10)
+			{
+				count++;
+				b[count] = c[i];
+			}
+
+		}
+		return b;
+	}
+}
+
+
