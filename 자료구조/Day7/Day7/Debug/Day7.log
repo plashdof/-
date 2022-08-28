@@ -1,0 +1,6 @@
+﻿  Day7_P1_E.cpp
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day7\Day7\Day7_P1_E.cpp(36,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day7\Day7\Day7_P1_E.cpp(67,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day7\Day7\Day7_P1_E.cpp(92,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day7\Day7\Day7_P1_E.cpp(77): warning C4715: 'GeneralTree::findNode': not all control paths return a value
+  Day7.vcxproj -> C:\Users\p.real_sound\Desktop\자료구조 실습\Day7\Debug\Day7.exe

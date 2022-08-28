@@ -1,0 +1,11 @@
+﻿  Day2_P2_H.cpp
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day2\Day2_P2_H\Day2_P2_H.cpp(30,29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day2\Day2_P2_H\Day2_P2_H.cpp(31,21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day2\Day2_P2_H\Day2_P2_H.cpp(32,21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day2\Day2_P2_H\Day2_P2_H.cpp(36,29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day2\Day2_P2_H\Day2_P2_H.cpp(37,29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day2\Day2_P2_H\Day2_P2_H.cpp(38,21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day2\Day2_P2_H\Day2_P2_H.cpp(78,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day2\Day2_P2_H\Day2_P2_H.cpp(82,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\p.real_sound\Desktop\자료구조 실습\Day2\Day2_P2_H\Day2_P2_H.cpp(86,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Day2_P2_H.vcxproj -> C:\Users\p.real_sound\Desktop\자료구조 실습\Day2\Debug\Day2_P2_H.exe
